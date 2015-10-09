@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+# Make sure the docker IP is set as the dashboard's riemann server
+
+require 'json'
+
+DOCKER_IP=`docker-machine ip dev`.strip
+
+filename         = "riemann-dash/config/config.json"
+config           = JSON.parse(File.read(filename))
+config["server"] = "http://#{DOCKER_IP}:5556"
+
+File.open(filename,"w") { |f| f.write(config.to_json) }

@@ -7,11 +7,7 @@
 (defn -main
   "Start nrepl and riemann servers"
   [& args]
-  ; (println "Starting Riemann server")
-  ; (riemann/-main "start" "riemann.config")
+  (println "Starting Riemann server")
+  (riemann/-main "start" "riemann.config")
   (println "Starting NREPL server on port 4001")
   (nrepl/start-server :port 4001))
-
-(comment
-  (riemann/reload!)
-  (riemann/-main))

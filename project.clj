@@ -7,6 +7,8 @@
                  [com.stuartsierra/component "0.3.0"]
                  [environ "1.0.1"]]
   :main ^:skip-aot riemann-harness.core
+  :repl-opts {:init-ns user}
   :target-path "target/%s"
   :plugins [[lein-environ "1.0.1"]]
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :dev {:source-paths ["src" "dev"]}})

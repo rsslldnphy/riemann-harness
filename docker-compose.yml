@@ -4,9 +4,21 @@ riemann:
     M2_HOME: /code/.m2
   ports:
     - 4001:4001
+    - 5555:5555
+    - 5556:5556
   volumes:
     - ./src:/code/src
+    - ./dev:/code/dev
     - ./test:/code/test
     - ./project.clj:/code/project.clj
     - ./riemann.config:/code/riemann.config
     - ~/.m2:/code/.m2
+riemanndash:
+  build: riemann-dash
+  links:
+    - riemann
+  ports:
+    - 4567:4567
+  volumes:
+    - ./riemann-dash/dev.rb:/code/dev.rb
+    - ./riemann-dash/config:/code/config

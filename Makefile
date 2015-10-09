@@ -14,3 +14,6 @@ run: docker-clean _run _run-trap
 
 repl:
 	lein repl :connect $(DOCKER_IP):$(NREPL_PORT)
+
+dash:
+	bin/dash && open http://$(DOCKER_IP):4567
