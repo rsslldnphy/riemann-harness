@@ -1,0 +1,12 @@
+riemann:
+  build: .
+  environment:
+    M2_HOME: /code/.m2
+  ports:
+    - 4001:4001
+  volumes:
+    - ./src:/code/src
+    - ./test:/code/test
+    - ./project.clj:/code/project.clj
+    - ./riemann.config:/code/riemann.config
+    - ~/.m2:/code/.m2
