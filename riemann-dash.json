@@ -1,0 +1,85 @@
+{
+  "server": "192.168.99.100:5556",
+  "server_type": "ws",
+  "workspaces": [
+    {
+      "name": "Riemann",
+      "view": {
+        "type": "Balloon",
+        "weight": 1,
+        "id": "7fa223cf6a6233f47ecfadb5cb9a87475c7e9a7e",
+        "version": 19,
+        "child": {
+          "type": "VStack",
+          "weight": 1,
+          "id": "9157f74f3e72b75acd0921ab6bb668f759835468",
+          "version": 19,
+          "children": [
+            {
+              "type": "HStack",
+              "weight": 1,
+              "id": "2eadc1263a40edea46dd2af429ee51335f655b38",
+              "version": 17,
+              "children": [
+                {
+                  "type": "Log",
+                  "weight": 1,
+                  "id": "094f55be4760f4d81521d07cbc7281486b6a91a6",
+                  "version": 6,
+                  "title": "Riemann",
+                  "query": "service = \"my-service\"",
+                  "lines": "1000"
+                },
+                {
+                  "type": "VStack",
+                  "weight": 1,
+                  "id": "3ea4de7f5e4219de10e4b1ef118ac32f8364cfd7",
+                  "version": 7,
+                  "children": [
+                    {
+                      "type": "TimeSeries",
+                      "weight": 1,
+                      "id": "63ea8fce529be92a9bd1a44902062e557405dd80",
+                      "version": 2,
+                      "title": "",
+                      "delay": "",
+                      "speed": "",
+                      "query": "service = \"my-service\" and host = \"my-host-a\"",
+                      "opacity": "",
+                      "lineWidth": ""
+                    },
+                    {
+                      "type": "TimeSeries",
+                      "weight": 1,
+                      "id": "05e68405883d93e66f9ab985c3cbd50a7b6b3f90",
+                      "version": 1,
+                      "title": "",
+                      "delay": "",
+                      "speed": "",
+                      "query": "service = \"my-service\" and host = \"my-host-b\"",
+                      "opacity": "",
+                      "lineWidth": ""
+                    },
+                    {
+                      "type": "TimeSeries",
+                      "weight": 1,
+                      "id": "eb5315a9dcf11c2d7332662750ae4523dca467ea",
+                      "version": 9,
+                      "title": "",
+                      "delay": "",
+                      "speed": "",
+                      "query": "service = \"my-service\" and host = \"my-host-c\"",
+                      "opacity": "",
+                      "lineWidth": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "id": "cdb86602c7bbe40dcbc13c35bdf7e542cce1af52"
+    }
+  ]
+}

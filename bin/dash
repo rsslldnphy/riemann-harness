@@ -6,8 +6,8 @@ require 'json'
 
 DOCKER_IP=`docker-machine ip dev`.strip
 
-filename         = "riemann-dash/config/config.json"
+filename         = "riemann-dash.json"
 config           = JSON.parse(File.read(filename))
-config["server"] = "http://#{DOCKER_IP}:5556"
+config["server"] = "#{DOCKER_IP}:5556"
 
 File.open(filename,"w") { |f| f.write(config.to_json) }

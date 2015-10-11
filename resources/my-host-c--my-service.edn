@@ -1,0 +1,5 @@
+{:host "my-host-c" :service "my-service" :state "ok" :description nil :metric 1 :tags nil :time 1444677877 :ttl 150.0}
+{:host "my-host-c" :service "my-service" :state "ok" :description nil :metric 2 :tags nil :time 1444677878 :ttl 150.0}
+{:host "my-host-c" :service "my-service" :state "ok" :description nil :metric 3 :tags nil :time 1444677880 :ttl 150.0}
+{:host "my-host-c" :service "my-service" :state "ok" :description nil :metric 4 :tags nil :time 1444677883 :ttl 150.0}
+{:host "my-host-c" :service "my-service" :state "ok" :description nil :metric 5 :tags nil :time 1444677887 :ttl 150.0}

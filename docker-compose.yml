@@ -1,24 +1,30 @@
-riemann:
+harness:
   build: .
   environment:
     M2_HOME: /code/.m2
+  links:
+    - riemann
   ports:
     - 4001:4001
-    - 5555:5555
-    - 5556:5556
   volumes:
     - ./src:/code/src
     - ./dev:/code/dev
     - ./test:/code/test
+    - ./resources:/code/resources
     - ./project.clj:/code/project.clj
     - ./riemann.config:/code/riemann.config
     - ~/.m2:/code/.m2
-riemanndash:
-  build: riemann-dash
-  links:
-    - riemann
+riemann:
+  build: services/riemann
+  ports:
+    - 5555/tcp:5555/tcp
+    - 5555/udp:5555/udp
+    - 5556:5556
+  volumes:
+    - ./riemann.config:/app/etc/riemann.config
+dashboard:
+  build: services/riemann-dash
   ports:
     - 4567:4567
   volumes:
-    - ./riemann-dash/dev.rb:/code/dev.rb
-    - ./riemann-dash/config:/code/config
+    - ./riemann-dash.json:/app/config/config.json

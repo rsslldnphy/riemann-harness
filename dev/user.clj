@@ -1,18 +1,30 @@
 (ns user
   (:require
-    [environ.core               :refer [env]]
-    [riemann.bin                :as riemann]
-    [clojure.tools.nrepl.server :as nrepl]))
+    [com.stuartsierra.component   :as component]
+    [clojure.tools.namespace.repl :as repl]
+    [environ.core                 :refer [env]]
+    [user.system                  :refer :all]
+    [riemann-harness.system       :as system]
+    [riemann.client               :as riemann-client]))
 
-(defonce started?
-  (atom false))
+(defn init []
+  (reset! system (system/new-system)))
 
-(defn reload!
-  []
-  (if @started?
-    (riemann/reload!)
-    (do (riemann/-main "start" "riemann.config")
-        (reset! started? true))))
+(defn start []
+  (swap! system component/start))
+
+(defn stop []
+  (swap! system component/stop))
+
+(defn go []
+  (init)
+  (start))
+
+(defn reset []
+  (stop)
+  (repl/refresh :after 'user/go))
 
 (comment
-  (reload!))
+  (go)
+  (stop)
+  (reset))
