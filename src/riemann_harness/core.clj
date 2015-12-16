@@ -1,5 +1,4 @@
 (ns riemann-harness.core
-  (:require)
   (:gen-class))
 
 (defn -main

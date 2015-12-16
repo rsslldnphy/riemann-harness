@@ -1,4 +1,4 @@
-DOCKER_IP  = $$(docker-machine ip dev)
+DOCKER_IP  = $$(docker-machine ip default)
 NREPL_PORT = 4001
 
 docker-clean:
@@ -6,7 +6,7 @@ docker-clean:
 	docker ps -a | grep riemannharness | awk '{print $$1}' | xargs docker rm
 
 run: docker-clean
-	source .env && docker-compose up
+	docker-compose up
 
 repl:
 	lein repl :connect $(DOCKER_IP):$(NREPL_PORT)

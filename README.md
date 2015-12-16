@@ -17,7 +17,7 @@ To nREPL in to the running harness, and start sending test events, run:
 
 ```bash
 $ make repl
-; lein repl :connect $(docker-machine ip dev):4001
+; lein repl :connect $(docker-machine ip default):4001
 ; Connecting to nREPL at 192.168.xx.xxx:4001
 ; REPL-y 0.3.7, nREPL 0.2.10
 ; Clojure 1.7.0
