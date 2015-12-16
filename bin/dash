@@ -4,7 +4,7 @@
 
 require 'json'
 
-DOCKER_IP=`docker-machine ip default`.strip
+DOCKER_IP=`docker-machine ip janus-dev`.strip
 
 filename         = "riemann-dash.json"
 config           = JSON.parse(File.read(filename))

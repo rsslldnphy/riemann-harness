@@ -1,4 +1,4 @@
-DOCKER_IP  = $$(docker-machine ip default)
+DOCKER_IP  = $$(docker-machine ip janus-dev)
 NREPL_PORT = 4001
 
 docker-clean:
